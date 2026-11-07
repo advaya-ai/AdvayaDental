@@ -1,20 +1,21 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/",
-      "destination": "/dental/",
-      "permanent": false
-    }
+    { "source": "/dental", "destination": "/recovery-desk", "permanent": true },
+    { "source": "/dental/", "destination": "/recovery-desk", "permanent": true },
+    { "source": "/dental/index.html", "destination": "/recovery-desk", "permanent": true },
+    { "source": "/dental/compliance.html", "destination": "/patient-data", "permanent": true },
+    { "source": "/dental/unscheduled-treatment-recovery.html", "destination": "/guides/unscheduled-treatment-recovery", "permanent": true },
+    { "source": "/dental/whatsapp-patient-recall-india.html", "destination": "/guides/whatsapp-patient-recall-india", "permanent": true },
+    { "source": "/compliance", "destination": "/patient-data", "permanent": true }
   ],
   "headers": [
-    {
-      "source": "/dental/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800"
-        }
-      ]
-    }
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+      { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+    ] }
   ]
 }
