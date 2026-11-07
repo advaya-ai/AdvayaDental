@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dental AI Receptionist &amp; Missed Call Systems | Advaya.ai</title>
+<meta name="description" content="Three AI systems for dental clinics: a policy-bound AI receptionist that books into Google Sheets, a missed-call manager, and treatment recovery. Free audit.">
+<link rel="canonical" href="https://dental.advayaai.in/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/icon-64.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Advaya.ai">
+<meta property="og:title" content="Dental AI Receptionist &amp; Missed Call Systems | Advaya.ai">
+<meta property="og:description" content="Three AI systems for dental clinics: a policy-bound AI receptionist that books into Google Sheets, a missed-call manager, and treatment recovery. Free audit.">
+<meta property="og:url" content="https://dental.advayaai.in/">
+<meta property="og:image" content="https://dental.advayaai.in/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dental AI Receptionist &amp; Missed Call Systems | Advaya.ai">
+<meta name="twitter:description" content="Three AI systems for dental clinics: a policy-bound AI receptionist that books into Google Sheets, a missed-call manager, and treatment recovery. Free audit.">
+<meta name="twitter:image" content="https://dental.advayaai.in/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://advayaai.in/#org",
+   "name": "Advaya AI",
+   "alternateName": "Advaya.ai",
+   "url": "https://advayaai.in/",
+   "logo": "https://dental.advayaai.in/assets/icon-512.png",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mangaluru",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://dental.advayaai.in/#website",
+   "url": "https://dental.advayaai.in/",
+   "name": "Advaya.ai Dental",
+   "publisher": {
+    "@id": "https://advayaai.in/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://dental.advayaai.in/#page",
+   "url": "https://dental.advayaai.in/",
+   "name": "Dental AI Receptionist & Missed Call Systems | Advaya.ai",
+   "isPartOf": {
+    "@id": "https://dental.advayaai.in/#website"
+   },
+   "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+     {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dental Systems",
+      "item": "https://dental.advayaai.in/"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Which system should we start with?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most clinics start with the Missed Call Manager because it is cheap, quick to set up, and shows within two weeks how many patients you were losing. Clinics with no one free to answer the phone go straight to the AI Receptionist. Established clinics with a long unscheduled-treatment list get the fastest return from the Recovery Desk."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will the AI receptionist give medical advice?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It answers only from the clinic information you approve, such as timings, services, location, payment and cancellation policy. Anything clinical, anything outside that information, and any mention of pain or an emergency goes to a human."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where do bookings go?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Into a Google Sheet in your own Google account, or into your CRM where it has an API. Your front desk sees everything in a small dashboard app that runs on your own computer."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do we have to change our phone number?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. We set up call forwarding on no-answer or busy from your existing number to a virtual number. Patients keep calling the number they know."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this HIPAA compliant for US practices?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We build only on platforms that sign Business Associate Agreements: Retell AI for voice, Twilio for SMS, Google Workspace for Sheets, and Keragon and NexHealth for practice-software work. We also sign a BAA with your practice. WhatsApp is never used for US patients."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens if we cancel?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You keep the Google Sheet, the dashboard app, the phone number and all your data. We remove our access the same day."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Advaya.ai Dental home">
+      <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="Advaya.ai logo" width="140" height="100"></picture>
+      <span><b>Advaya<span>.ai</span></b><small>Dental Systems</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/ai-receptionist">AI Receptionist</a>
+      <a href="/missed-call-manager">Missed Calls</a>
+      <a href="/recovery-desk">Recovery Desk</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/patient-data">Patient Data</a>
+      <a href="/#audit" class="btn sm">Book Free Audit</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero grid-bg center">
+  <div class="wrap">
+    <span class="pill">Engineered for dental clinics</span>
+    <h1>Every call answered. <span class="accent">Every chair filled.</span></h1>
+    <p class="lede">Three production-grade AI systems for dental clinics: a receptionist that follows your clinic's policies, a missed-call manager that brings callers back, and a recovery desk that books the treatment you've already diagnosed.</p>
+    <div class="cta-row">
+      <a class="btn blue" href="#audit">Book a free 20-min audit →</a>
+      <a class="btn ghost" href="#calculator">Calculate lost revenue</a>
+    </div>
+    <ul class="trust"><li>Answers only from your approved policies</li><li>Bookings in your own Google Sheet</li><li>Hands everything else to a human</li></ul>
+  </div>
+</section>
+
+<section aria-labelledby="offers-h">
+  <div class="wrap">
+    <span class="eyebrow">Three systems</span>
+    <h2 id="offers-h">Pick the leak you want to fix first</h2>
+    <p class="lede">Each one works on its own. Together they share one Google Sheet and one front-desk dashboard.</p>
+    <div class="grid g3" style="margin-top:34px">
+      <article class="card offer">
+        <span class="tag">Front line</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>AI Receptionist</h3>
+        <p class="muted">Answers calls and WhatsApp 24/7, books appointments, and hands anything it isn't allowed to answer to your team.</p>
+        <ul><li>Trained only on your clinic's policies</li><li>Books into Google Sheets or your CRM</li><li>Local dashboard app for the front desk</li></ul>
+        <p class="from"><span data-region="in">From ₹12,999/mo</span><span data-region="us" hidden>From $549/mo</span></p>
+        <a class="btn blue" href="/ai-receptionist">Explore the receptionist</a>
+      </article>
+      <article class="card offer">
+        <span class="tag green">Start here</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></div>
+        <h3>Missed Call Manager</h3>
+        <p class="muted">Every missed call gets a WhatsApp or SMS within a minute and lands in a ranked callback list, so no new patient gives up and calls the next clinic.</p>
+        <ul><li>Keeps your existing number</li><li>New-patient calls flagged first</li><li>Daily summary to the doctor</li></ul>
+        <p class="from"><span data-region="in">From ₹4,999/mo</span><span data-region="us" hidden>From $249/mo</span></p>
+        <a class="btn ghost" href="/missed-call-manager">Explore missed calls</a>
+      </article>
+      <article class="card offer">
+        <span class="tag amber">5× guarantee</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></div>
+        <h3>Recovery Desk</h3>
+        <p class="muted">Works the list of patients with diagnosed-but-unbooked treatment and overdue check-ups, and reports booked production every Monday.</p>
+        <ul><li>No bot on your main line</li><li>Three polite touches, then stop</li><li>30-day pilot before you pay a fee</li></ul>
+        <p class="from"><span data-region="in">From ₹9,999/mo</span><span data-region="us" hidden>From $750/mo</span></p>
+        <a class="btn ghost" href="/recovery-desk">Explore recovery</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="flow-h">
+  <div class="wrap">
+    <span class="eyebrow">How they fit together</span>
+    <h2 id="flow-h">One patient journey, no gaps</h2>
+    <div class="flow">
+      <div><b>Before the call</b><h3>Missed Call Manager</h3><p class="muted" style="margin:0">If nobody picks up, the caller gets a WhatsApp/SMS in under a minute and a spot in your callback list.</p></div>
+      <div><b>During the call</b><h3>AI Receptionist</h3><p class="muted" style="margin:0">Answers routine questions from your policies, books the slot, and transfers anything else to staff.</p></div>
+      <div><b>After the visit</b><h3>Recovery Desk</h3><p class="muted" style="margin:0">If the treatment plan never gets booked, it follows up politely until the patient books or says no.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="dash-h">
+  <div class="wrap">
+    <div class="grid g2" style="align-items:center;gap:48px">
+      <div>
+        <span class="eyebrow">Your data, your screen</span>
+        <h2 id="dash-h">A dashboard that runs on your own computer</h2>
+        <p class="lede">Every booking, call and handoff is written to a Google Sheet in <b>your</b> Google account. A small dashboard app on your front-desk computer reads that sheet and shows today at a glance.</p>
+        <ul class="trust" style="flex-direction:column;gap:.5rem"><li>No new cloud system holding your patient list</li><li>Staff can still open and edit the sheet directly</li><li>Cancel any time and keep everything</li></ul>
+      </div>
+      <figure class="dash" aria-label="Sample of the local front-desk dashboard">
+      <div class="dash-top"><div class="dots"><i></i><i></i><i></i></div><b>Front Desk · Today</b><span class="tag amber">Sample data</span></div>
+      <div class="kpis">
+        <div><span>Calls answered</span><strong>38</strong></div>
+        <div><span>Booked by AI</span><strong>11</strong></div>
+        <div><span>Handed to staff</span><strong>6</strong></div>
+        <div><span>Missed calls recovered</span><strong>4/5</strong></div>
+      </div>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Time</th><th>Patient</th><th>Booked via</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>10:30</td><td>R. Shetty</td><td>AI call</td><td><span class="tag green">Confirmed</span></td></tr>
+          <tr><td>11:15</td><td>A. Fernandes</td><td>WhatsApp</td><td><span class="tag green">Confirmed</span></td></tr>
+          <tr><td>12:00</td><td>K. Rao</td><td>Missed-call text-back</td><td><span class="tag">Awaiting reply</span></td></tr>
+          <tr><td>—</td><td>New caller</td><td>AI call</td><td><span class="tag amber">Handoff: billing question</span></td></tr>
+        </tbody>
+      </table></div>
+    </figure>
+    </div>
+  </div>
+</section>
+
+<section id="calculator" class="band" aria-labelledby="calc-h">
+  <div class="wrap">
+    <span class="eyebrow">Revenue calculator</span>
+    <h2 id="calc-h">What is your clinic leaving on the table?</h2>
+    <p class="lede">Move the sliders to match your clinic. The defaults are deliberately conservative. This gives an estimate; your audit gives the real figure.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px">
+      <div class="tabs" role="tablist" aria-label="Calculator">
+        <button type="button" role="tab" data-calc-tab="missed" aria-selected="true">Missed calls</button>
+        <button type="button" role="tab" data-calc-tab="recovery" aria-selected="false">Unscheduled treatment</button>
+      </div>
+      <div class="tabs" role="group" aria-label="Region">
+        <button type="button" data-region-btn="in" aria-pressed="true">India (₹)</button>
+        <button type="button" data-region-btn="us" aria-pressed="false">US ($)</button>
+      </div>
+    </div>
+
+    <div class="calc" data-calc-panel="missed">
+      <div class="card">
+        <div class="field"><label for="mc-calls">Missed calls per week <output id="o-mc-calls">20</output></label><input id="mc-calls" type="range" min="2" max="150" step="1" value="20"></div>
+        <div class="field"><label for="mc-new">Share that are new-patient enquiries <output id="o-mc-new">30%</output></label><input id="mc-new" type="range" min="5" max="80" step="5" value="30"></div>
+        <div class="field"><label for="mc-value">Value of a new patient's first course <output id="o-mc-value">₹4,000</output></label><input id="mc-value" type="range" min="1000" max="20000" step="500" value="4000"></div>
+        <div class="field"><label for="mc-rate">Share we turn into bookings <output id="o-mc-rate">20%</output></label><input id="mc-rate" type="range" min="5" max="60" step="5" value="20"></div>
+        <p class="muted small" style="margin:0">Don't know your missed-call count? Your phone provider's call log shows it, and so does the audit.</p>
+      </div>
+      <div class="result" aria-live="polite">
+        <div class="muted small">Estimated new-patient value recovered per month</div>
+        <div class="big" id="mc-big">₹20,800</div>
+        <dl>
+          <dt>New-patient value at risk / month</dt><dd id="mc-lost">₹1,03,920</dd>
+          <dt>Bookings recovered</dt><dd id="mc-booked">5</dd>
+          <dt>Value recovered</dt><dd id="mc-recovered">₹20,000</dd>
+          <dt>Missed Call Manager fee</dt><dd id="mc-fee">₹4,999</dd>
+          <dt>Return on fee</dt><dd id="mc-mult">4.0×</dd>
+        </dl>
+        <p class="verdict" id="mc-verdict"></p>
+      </div>
+    </div>
+
+    <div class="calc" data-calc-panel="recovery" hidden>
+      <div class="card">
+        <div class="field"><label for="rd-list">Patients on unscheduled + overdue lists <output id="o-rd-list">500</output></label><input id="rd-list" type="range" min="50" max="3000" step="50" value="500"></div>
+        <div class="field"><label for="rd-value">Average value of a booked visit <output id="o-rd-value">₹4,000</output></label><input id="rd-value" type="range" min="1000" max="25000" step="500" value="4000"></div>
+        <div class="field"><label for="rd-rate">Share who book in month one <output id="o-rd-rate">4%</output></label><input id="rd-rate" type="range" min="1" max="15" step="1" value="4"></div>
+        <p class="muted small" style="margin:0">We use 4–6% as a planning number, not a promise. Month one is the best month because you're working a backlog.</p>
+      </div>
+      <div class="result" aria-live="polite">
+        <div class="muted small">Estimated booked production, month one</div>
+        <div class="big" id="rd-big">₹80,000</div>
+        <dl>
+          <dt>Appointments booked</dt><dd id="rd-booked">20</dd>
+          <dt>Booked production</dt><dd id="rd-prod">₹80,000</dd>
+          <dt>Recovery Desk fee</dt><dd id="rd-fee">₹14,999</dd>
+          <dt>Return on fee</dt><dd id="rd-mult">5.3×</dd>
+        </dl>
+        <p class="verdict" id="rd-verdict"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" aria-labelledby="data-h">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#a5b4fc">Patient data</span>
+    <h2 id="data-h">Built on platforms that carry the compliance load</h2>
+    <p class="lede">We don't run our own servers holding your patients' records. Every step runs on an established platform that signs the agreement healthcare requires, and accounts can sit in your clinic's name.</p>
+    <div class="grid g2" style="margin-top:30px">
+      <div class="card"><h3>United States: HIPAA</h3><ul style="padding-left:1.1rem;margin:0"><li>Voice AI: <b>Retell AI</b> under BAA</li><li>SMS and numbers: <b>Twilio</b> HIPAA-eligible products under BAA</li><li>Bookings: <b>Google Sheets</b> in your Workspace, with Google's BAA</li><li>Practice software: <b>NexHealth</b> and <b>Keragon</b> under BAA</li><li>No WhatsApp for US patients</li></ul></div>
+      <div class="card"><h3>India: DPDP Act 2023</h3><ul style="padding-left:1.1rem;margin:0"><li>Your clinic is the Data Fiduciary; we're the Data Processor under a written agreement</li><li>WhatsApp through an official Meta Business Solution Provider</li><li>Missed calls via a licensed Indian cloud-telephony provider</li><li>No diagnosis, procedure or price in any outbound message</li></ul></div>
+    </div>
+    <p style="margin-top:24px"><a href="/patient-data" style="color:#fff">See exactly who is responsible for what →</a></p>
+  </div>
+</section>
+
+<section id="pricing" class="band" aria-labelledby="price-h">
+  <div class="wrap">
+    <span class="eyebrow">Pricing</span>
+    <h2 id="price-h">Flat monthly fees. No percentage of your revenue.</h2>
+    <p class="lede">Start with one system or run all three. Usage (call minutes, WhatsApp/SMS messages, phone numbers) is billed at cost, and we show you the rate card before you sign.</p>
+    <div style="margin:24px 0 28px">
+      <div class="tabs" role="group" aria-label="Region">
+        <button type="button" data-region-btn="in" aria-pressed="true">India (₹)</button>
+        <button type="button" data-region-btn="us" aria-pressed="false">US ($)</button>
+      </div>
+    </div>
+
+    <div class="grid g3" data-region="in">
+      <article class="card price">
+        <span class="tag green" style="align-self:flex-start">Start here</span>
+        <h3 style="margin-top:14px">Missed Call Manager</h3>
+        <div class="amt">₹4,999 <span>/ month</span></div>
+        <p class="setup">Setup ₹5,000 · one clinic number</p>
+        <ul><li>WhatsApp text-back within a minute of every missed call</li><li>Callback queue ranked by new vs existing patient</li><li>Daily summary to the doctor</li><li>Works with your existing number</li></ul>
+        <a class="btn ghost" href="/missed-call-manager">See how it works</a>
+      </article>
+      <article class="card price featured">
+        <span class="tag" style="align-self:flex-start">Most complete</span>
+        <h3 style="margin-top:14px">AI Receptionist</h3>
+        <div class="amt">₹12,999 <span>/ month</span></div>
+        <p class="setup">Setup ₹25,000 · includes knowledge base + dashboard app</p>
+        <ul><li>Answers calls and WhatsApp 24/7 from your clinic's policies</li><li>Books into Google Sheets or your CRM</li><li>Hands anything else to your team</li><li>Local dashboard app for your front desk</li></ul>
+        <a class="btn blue" href="/ai-receptionist">See the receptionist</a>
+      </article>
+      <article class="card price">
+        <span class="tag amber" style="align-self:flex-start">5× guarantee</span>
+        <h3 style="margin-top:14px">Recovery Desk</h3>
+        <div class="amt">₹9,999 <span>/ month</span></div>
+        <p class="setup">₹14,999 for 3+ chairs · setup ₹15,000, waived after pilot</p>
+        <ul><li>Works your unscheduled-treatment and overdue-recall lists</li><li>WhatsApp follow-up + one callback</li><li>Monday report of booked production</li><li>30-day pilot first</li></ul>
+        <a class="btn ghost" href="/recovery-desk">See the Recovery Desk</a>
+      </article>
+    </div>
+    <div class="bundle" data-region="in">
+      <div><h3>Complete Front Desk: all three systems</h3><p>One dashboard, one setup, one invoice. Branches +₹9,999 each.</p></div>
+      <div><div class="amt">₹24,999<span class="muted small" style="font-weight:500"> / month</span></div><p class="small">vs ₹32,997 separately · setup ₹35,000</p></div>
+      <a class="btn blue" href="#audit">Book free audit</a>
+    </div>
+    <p class="muted small" data-region="in" style="margin-top:14px">Prices exclude GST. Month-to-month after the first two months.</p>
+
+    <div class="grid g3" data-region="us" hidden>
+      <article class="card price">
+        <span class="tag green" style="align-self:flex-start">Start here</span>
+        <h3 style="margin-top:14px">Missed Call Manager</h3>
+        <div class="amt">$249 <span>/ month</span></div>
+        <p class="setup">Setup $300 · per location</p>
+        <ul><li>SMS text-back within a minute of every missed call</li><li>Callback queue ranked by new vs existing patient</li><li>Daily summary</li><li>Keeps your existing number</li></ul>
+        <a class="btn ghost" href="/missed-call-manager">See how it works</a>
+      </article>
+      <article class="card price featured">
+        <span class="tag" style="align-self:flex-start">Most complete</span>
+        <h3 style="margin-top:14px">AI Receptionist</h3>
+        <div class="amt">$549 <span>/ month</span></div>
+        <p class="setup">Setup $1,500 · per location, minutes at cost</p>
+        <ul><li>Answers calls 24/7 from your practice policies</li><li>Books into Google Sheets (Workspace with BAA) or your CRM</li><li>Warm transfer for anything else</li><li>Local dashboard app</li></ul>
+        <a class="btn blue" href="/ai-receptionist">See the receptionist</a>
+      </article>
+      <article class="card price">
+        <span class="tag amber" style="align-self:flex-start">5× guarantee</span>
+        <h3 style="margin-top:14px">Recovery Desk</h3>
+        <div class="amt">$750 <span>/ month</span></div>
+        <p class="setup">Setup $1,000, waived after a 30-day pilot</p>
+        <ul><li>Unscheduled treatment + overdue recall recovery</li><li>SMS outreach + voice callback</li><li>Monday production report</li><li>BAA signed with every practice</li></ul>
+        <a class="btn ghost" href="/recovery-desk">See the Recovery Desk</a>
+      </article>
+    </div>
+    <div class="bundle" data-region="us" hidden>
+      <div><h3>Complete Front Desk: all three systems</h3><p>One dashboard, one setup, one invoice. Per location.</p></div>
+      <div><div class="amt">$1,290<span class="muted small" style="font-weight:500"> / month</span></div><p class="small">vs $1,548 separately · setup $2,000</p></div>
+      <a class="btn blue" href="#audit">Book free audit</a>
+    </div>
+    <p class="muted small" data-region="us" hidden style="margin-top:14px">Month-to-month after the first two months. We sign a Business Associate Agreement with every US practice.</p>
+
+    <div class="guarantee">
+      <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l14 5v10c0 9-6 16-14 19C12 34 6 27 6 18V8z" fill="#16a34a"/><path d="M13 20l5 5 9-10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <h3 style="margin-bottom:.3em">What we put in writing</h3>
+        <p style="margin:0"><b>Recovery Desk:</b> if booked recovered production in a month is under 5× that month's fee, the next month is free. <b>All systems:</b> you own the Google Sheet, the phone number and the data. If you leave, they stay with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="fit" aria-labelledby="fit-h">
+  <div class="wrap">
+    <h2 id="fit-h">Honest fit check</h2>
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card"><h3>A good fit if…</h3><ul style="padding-left:1.1rem;margin:0"><li>Your phone rings more than your team can answer</li><li>You've been open 2+ years and have a real patient base</li><li>You want bookings and call logs in one place you own</li><li>You'd rather have a system than hire another receptionist</li></ul></div>
+      <div class="card"><h3>Probably not a fit if…</h3><ul style="padding-left:1.1rem;margin:0"><li>You get only a handful of calls a day and answer them all</li><li>You want an AI to give clinical advice (ours never will)</li><li>Your appointments must be written straight into software with no API. We'll tell you on the audit what's possible</li><li>You're booked solid for weeks already</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="faq-h">
+  <div class="wrap" style="max-width:860px">
+    <span class="eyebrow">FAQ</span>
+    <h2 id="faq-h">Questions clinics ask us</h2>
+    <details><summary>Which system should we start with?</summary><p>Most clinics start with the Missed Call Manager because it is cheap, quick to set up, and shows within two weeks how many patients you were losing. Clinics with no one free to answer the phone go straight to the AI Receptionist. Established clinics with a long unscheduled-treatment list get the fastest return from the Recovery Desk.</p></details>
+    <details><summary>Will the AI receptionist give medical advice?</summary><p>No. It answers only from the clinic information you approve, such as timings, services, location, payment and cancellation policy. Anything clinical, anything outside that information, and any mention of pain or an emergency goes to a human.</p></details>
+    <details><summary>Where do bookings go?</summary><p>Into a Google Sheet in your own Google account, or into your CRM where it has an API. Your front desk sees everything in a small dashboard app that runs on your own computer.</p></details>
+    <details><summary>Do we have to change our phone number?</summary><p>No. We set up call forwarding on no-answer or busy from your existing number to a virtual number. Patients keep calling the number they know.</p></details>
+    <details><summary>Is this HIPAA compliant for US practices?</summary><p>We build only on platforms that sign Business Associate Agreements: Retell AI for voice, Twilio for SMS, Google Workspace for Sheets, and Keragon and NexHealth for practice-software work. We also sign a BAA with your practice. WhatsApp is never used for US patients.</p></details>
+    <details><summary>What happens if we cancel?</summary><p>You keep the Google Sheet, the dashboard app, the phone number and all your data. We remove our access the same day.</p></details>
+  </div>
+</section>
+
+<section id="audit" aria-labelledby="audit-h">
+  <div class="wrap" style="max-width:860px">
+    <span class="eyebrow">Free audit</span>
+    <h2 id="audit-h">Find out what you're losing, in 20 minutes</h2>
+    <p class="lede">Tell us about your clinic. We'll look at your missed calls, how your phones are covered and your unscheduled list, then recommend one system. Sometimes that's none.</p>
+    <form id="audit-form" class="card" style="margin-top:26px">
+      <div class="row">
+        <div><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div><label for="f-clinic">Clinic name</label><input id="f-clinic" name="clinic" autocomplete="organization" required></div>
+      </div>
+      <div class="row">
+        <div><label for="f-city">City and country</label><input id="f-city" name="city" required></div>
+        <div><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+      </div>
+      <fieldset>
+        <legend>Interested in</legend>
+        <div class="checks">
+          <label><input type="checkbox" name="offer" value="AI Receptionist"> AI Receptionist</label>
+          <label><input type="checkbox" name="offer" value="Missed Call Manager"> Missed Call Manager</label>
+          <label><input type="checkbox" name="offer" value="Recovery Desk"> Recovery Desk</label>
+        </div>
+      </fieldset>
+      <div class="row">
+        <div><label for="f-pms">Where appointments live today</label>
+          <select id="f-pms" name="pms">
+            <option>Paper / register</option><option>Google Sheets or Calendar</option><option>Practo Ray</option><option>Clinicea / Clinicia</option>
+            <option>Dentee / Cliniify / MocDoc</option><option>Dentrix</option><option>Eaglesoft</option><option>Open Dental</option><option>Curve Hero</option><option>Dentally</option><option>Other</option>
+          </select></div>
+        <div><label for="f-size">Chairs / locations</label>
+          <select id="f-size" name="size"><option>1–2 chairs</option><option>3–5 chairs</option><option>6+ chairs</option><option>2–10 locations</option><option>10+ locations</option></select></div>
+      </div>
+      <label for="f-notes">Anything else? <span class="muted">(optional, please no patient details)</span></label>
+      <textarea id="f-notes" name="notes"></textarea>
+      <div class="cta-row" style="margin:6px 0 0">
+        <button class="btn blue" type="submit">Request my free audit</button>
+        <a class="btn ghost" data-wa href="#" hidden>Message us on WhatsApp</a>
+      </div>
+      <p id="form-ok" class="small muted" hidden>Your email app should open with the details filled in. If it doesn't, write to <a data-email href="#">hello@advayaai.in</a>.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="foot-brand"><img src="/assets/icon-64.png" alt="" width="40" height="40">Advaya.ai</div>
+        <p>Production-grade AI systems for dental clinics: answering, missed calls, and treatment recovery. Built in Mangaluru, India, for clinics in India, the US, UAE and UK.</p>
+        <p><a data-email href="#">hello@advayaai.in</a> · <a href="https://advayaai.in/">advayaai.in</a></p>
+      </div>
+      <div>
+        <h3>Systems</h3>
+        <ul><li><a href="/ai-receptionist">AI Receptionist</a></li><li><a href="/missed-call-manager">Missed Call Manager</a></li><li><a href="/recovery-desk">Recovery Desk</a></li><li><a href="/#pricing">Pricing</a></li></ul>
+      </div>
+      <div>
+        <h3>Trust</h3>
+        <ul><li><a href="/patient-data">Patient data &amp; compliance</a></li><li><a href="/#fit">Honest fit check</a></li><li><a href="/#audit">Free audit</a></li></ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul><li><a href="/guides/unscheduled-treatment-recovery">Recovering unscheduled treatment</a></li><li><a href="/guides/whatsapp-patient-recall-india">WhatsApp recall in India</a></li></ul>
+      </div>
+    </div>
+    <p class="legal">© <span data-year>2026</span> Advaya AI, Mangaluru, Karnataka, India. Third-party names are trademarks of their owners and are mentioned only to describe the platforms we build on; no endorsement is implied. Nothing on this site is legal or medical advice.</p>
+  </div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
