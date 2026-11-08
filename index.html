@@ -135,6 +135,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap"><a href="https://advayaai.in/">&larr; Back to Advaya AI main site</a><span class="topbar-note">AI systems for local businesses</span></div></div>
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Advaya.ai Dental home">
@@ -463,12 +464,13 @@
           <select id="f-size" name="size"><option>1–2 chairs</option><option>3–5 chairs</option><option>6+ chairs</option><option>2–10 locations</option><option>10+ locations</option></select></div>
       </div>
       <label for="f-notes">Anything else? <span class="muted">(optional, please no patient details)</span></label>
-      <textarea id="f-notes" name="notes"></textarea>
+      <textarea id="f-notes" name="notes" maxlength="2000"></textarea>
+      <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
       <div class="cta-row" style="margin:6px 0 0">
         <button class="btn blue" type="submit">Request my free audit</button>
         <a class="btn ghost" data-wa href="#" hidden>Message us on WhatsApp</a>
       </div>
-      <p id="form-ok" class="small muted" hidden>Your email app should open with the details filled in. If it doesn't, write to <a data-email href="#">hello@advayaai.in</a>.</p>
+      <p id="form-status" class="small form-status" role="status" aria-live="polite" hidden></p>
     </form>
   </div>
 </section>

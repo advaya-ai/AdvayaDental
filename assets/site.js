@@ -80,22 +80,60 @@ const CONFIG = {
   ["#mc-calls", "#mc-new", "#mc-value", "#mc-rate"].forEach(id => { const el = $(id); if (el) el.addEventListener("input", calcMissed); });
   ["#rd-list", "#rd-value", "#rd-rate"].forEach(id => { const el = $(id); if (el) el.addEventListener("input", calcRecovery); });
 
-  /* ---------- audit / demo form → email ---------- */
+  /* ---------- audit / demo form → Airtable (via /api/lead), email as fallback ---------- */
   const form = $("#audit-form");
   if (form) {
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      const d = new FormData(form);
-      const offers = d.getAll("offer").join(", ") || "Not sure yet";
+    const status = $("#form-status");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const showStatus = (msg, kind) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.dataset.kind = kind;
+      status.hidden = false;
+    };
+    const mailtoFallback = (d, offers) => {
       const lines = [
         "Free audit / demo request",
         "Name: " + d.get("name"), "Clinic: " + d.get("clinic"), "City / country: " + d.get("city"),
-        "Phone / WhatsApp: " + d.get("phone"), "Interested in: " + offers,
+        "Phone / WhatsApp: " + d.get("phone"), "Interested in: " + (offers.join(", ") || "Not sure yet"),
         "Practice software: " + d.get("pms"), "Chairs / locations: " + d.get("size"),
         "Notes: " + (d.get("notes") || "-")
       ];
       window.location.href = "mailto:" + CONFIG.CONTACT_EMAIL + "?subject=" + encodeURIComponent("Dental audit request: " + d.get("clinic")) + "&body=" + encodeURIComponent(lines.join("\n"));
-      const ok = $("#form-ok"); if (ok) ok.hidden = false;
+    };
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      const d = new FormData(form);
+      const offers = d.getAll("offer");
+      const payload = {
+        name: d.get("name"), clinic: d.get("clinic"), city: d.get("city"), phone: d.get("phone"),
+        offers, pms: d.get("pms"), size: d.get("size"), notes: d.get("notes") || "",
+        website: d.get("website") || ""
+      };
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.label = submitBtn.textContent; submitBtn.textContent = "Sending…"; }
+      showStatus("Sending your request…", "info");
+      try {
+        const r = await fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const out = await r.json().catch(() => ({}));
+        if (r.ok && out.ok) {
+          form.reset();
+          showStatus("Thank you. We've received your request and will contact you within one working day.", "ok");
+        } else if (r.status === 400) {
+          showStatus(out.error || "Please check the highlighted fields and try again.", "error");
+        } else {
+          throw new Error(out.error || "Request failed");
+        }
+      } catch (err) {
+        showStatus("We couldn't save your request online, so your email app will open with the details filled in. If it doesn't, write to " + CONFIG.CONTACT_EMAIL + ".", "error");
+        mailtoFallback(d, offers);
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label || "Request my free audit"; }
+      }
     });
   }
 
