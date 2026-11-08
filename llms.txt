@@ -1,6 +1,6 @@
 # Advaya AI Dental
 
-> Advaya AI Dental builds three AI systems for dental clinics in India, the US, UAE and UK: an AI Receptionist that answers calls and WhatsApp only from clinic-approved policies, a Missed Call Manager that replies to every missed call within a minute and ranks callbacks, and a Recovery Desk that books diagnosed-but-unscheduled treatment and overdue recall patients. Flat monthly fees, no percentage of revenue. Built by Advaya AI in Mangaluru, Karnataka, India.
+> Advaya AI Dental builds three AI systems for dental clinics in India, the US, UAE and UK: an AI Receptionist that answers calls and WhatsApp only from clinic-approved policies, a Missed Call Manager that replies to every missed call within a minute and ranks callbacks, and a Recovery Desk that books diagnosed-but-unscheduled treatment and overdue recall patients. Flat monthly fees, no percentage of revenue. Built by Advaya AI (advayaai.in), an AI automation agency in Mangaluru, Karnataka, India. Not affiliated with advaya.ai.
 
 ## Systems
 - [AI Receptionist](https://dental.advayaai.in/ai-receptionist): answers calls and WhatsApp from approved clinic information, books into Google Sheets or the clinic's CRM, hands anything clinical or urgent to staff.
