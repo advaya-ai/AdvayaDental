@@ -1,0 +1,21 @@
+# Advaya AI Dental
+
+> Advaya AI Dental builds three AI systems for dental clinics in India, the US, UAE and UK: an AI Receptionist that answers calls and WhatsApp only from clinic-approved policies, a Missed Call Manager that replies to every missed call within a minute and ranks callbacks, and a Recovery Desk that books diagnosed-but-unscheduled treatment and overdue recall patients. Flat monthly fees, no percentage of revenue. Built by Advaya AI in Mangaluru, Karnataka, India.
+
+## Systems
+- [AI Receptionist](https://dental.advayaai.in/ai-receptionist): answers calls and WhatsApp from approved clinic information, books into Google Sheets or the clinic's CRM, hands anything clinical or urgent to staff.
+- [Missed Call Manager](https://dental.advayaai.in/missed-call-manager): WhatsApp or SMS reply to every missed call within a minute plus a ranked callback list; keeps the clinic's existing number.
+- [Recovery Desk](https://dental.advayaai.in/recovery-desk): done-for-you recovery of unscheduled treatment and overdue recall patients over WhatsApp, SMS and callbacks; 30-day pilot.
+
+## Trust and compliance
+- [Patient data and compliance](https://dental.advayaai.in/patient-data): which vendors handle patient data, which agreements they sign (BAA, DPA), HIPAA for US practices and the DPDP Act 2023 for India.
+
+## Guides
+- [How to recover unscheduled dental treatment: a 7-step system](https://dental.advayaai.in/guides/unscheduled-treatment-recovery)
+- [WhatsApp patient recall for dental clinics in India](https://dental.advayaai.in/guides/whatsapp-patient-recall-india)
+
+## Contact
+- Free audit: https://dental.advayaai.in/#audit
+- Email: support@advayaai.in
+- Instagram: https://www.instagram.com/advaya__ai/
+- Main site: https://advayaai.in/

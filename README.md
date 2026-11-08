@@ -1,4 +1,4 @@
-# Advaya.ai: Dental Systems site
+# Advaya AI: Dental Systems site
 
 Static, SEO-ready marketing site for **dental.advayaai.in**, with three offers:
 

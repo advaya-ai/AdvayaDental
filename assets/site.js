@@ -1,7 +1,7 @@
-/* Advaya.ai Dental — small, dependency-free behaviours.
+/* Advaya AI Dental — small, dependency-free behaviours.
    EDIT THESE TWO VALUES BEFORE GOING LIVE. */
 const CONFIG = {
-  CONTACT_EMAIL: "hello@advayaai.in",  // where audit / demo requests go
+  CONTACT_EMAIL: "support@advayaai.in",  // where audit / demo requests go
   WHATSAPP_NUMBER: ""                 // e.g. "919876543210" (country code, no +). Empty hides WhatsApp buttons.
 };
 
