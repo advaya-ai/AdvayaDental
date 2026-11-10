@@ -112,7 +112,7 @@ const CONFIG = {
     const mailtoFallback = (d, offers) => {
       const lines = [
         "Free audit / demo request",
-        "Name: " + d.get("name"), "Clinic: " + d.get("clinic"), "City / country: " + d.get("city"),
+        "Name: " + d.get("name"), "Email: " + d.get("email"), "Clinic: " + d.get("clinic"), "City / country: " + d.get("city"),
         "Phone / WhatsApp: " + d.get("phone"), "Interested in: " + (offers.join(", ") || "Not sure yet"),
         "Practice software: " + d.get("pms"), "Chairs / locations: " + d.get("size"),
         "Notes: " + (d.get("notes") || "-")
@@ -125,7 +125,7 @@ const CONFIG = {
       const d = new FormData(form);
       const offers = d.getAll("offer");
       const payload = {
-        name: d.get("name"), clinic: d.get("clinic"), city: d.get("city"), phone: d.get("phone"),
+        name: d.get("name"), email: d.get("email"), clinic: d.get("clinic"), city: d.get("city"), phone: d.get("phone"),
         offers, pms: d.get("pms"), size: d.get("size"), notes: d.get("notes") || "",
         website: d.get("website") || ""
       };

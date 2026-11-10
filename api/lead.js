@@ -13,6 +13,7 @@ const TABLE_ID = process.env.AIRTABLE_TABLE_ID || "tblxknxFsVW9fMXaE";
 // Airtable column names. They must match the table exactly (case and punctuation).
 const FIELDS = {
   name: "Name",
+  email: "Email",
   clinic: "Clinic name",
   city: "City and country",
   phone: "Phone / WhatsApp",
@@ -22,7 +23,7 @@ const FIELDS = {
   notes: "Anything else? (optional)",
 };
 
-const LIMITS = { name: 120, clinic: 160, city: 120, phone: 40, pms: 80, size: 60, notes: 2000 };
+const LIMITS = { name: 120, email: 160, clinic: 160, city: 120, phone: 40, pms: 80, size: 60, notes: 2000 };
 
 function clean(value, max) {
   if (typeof value !== "string") return "";
@@ -51,6 +52,7 @@ module.exports = async function handler(req, res) {
 
   const data = {
     name: clean(body.name, LIMITS.name),
+    email: clean(body.email, LIMITS.email).toLowerCase(),
     clinic: clean(body.clinic, LIMITS.clinic),
     city: clean(body.city, LIMITS.city),
     phone: clean(body.phone, LIMITS.phone),
@@ -62,9 +64,12 @@ module.exports = async function handler(req, res) {
     ? body.offers.map(o => clean(o, 60)).filter(Boolean).slice(0, 5)
     : [];
 
-  const missing = ["name", "clinic", "city", "phone"].filter(k => !data[k]);
+  const missing = ["name", "email", "clinic", "city", "phone"].filter(k => !data[k]);
   if (missing.length) {
     return res.status(400).json({ ok: false, error: "Missing required fields", fields: missing });
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
+    return res.status(400).json({ ok: false, error: "Please enter a valid email address", fields: ["email"] });
   }
   if (!/^[+()\d\s.-]{6,40}$/.test(data.phone)) {
     return res.status(400).json({ ok: false, error: "Please enter a valid phone number", fields: ["phone"] });
@@ -78,6 +83,7 @@ module.exports = async function handler(req, res) {
 
   const fields = {
     [FIELDS.name]: data.name,
+    [FIELDS.email]: data.email,
     [FIELDS.clinic]: data.clinic,
     [FIELDS.city]: data.city,
     [FIELDS.phone]: data.phone,
