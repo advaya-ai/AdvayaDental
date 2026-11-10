@@ -80,6 +80,24 @@ const CONFIG = {
   ["#mc-calls", "#mc-new", "#mc-value", "#mc-rate"].forEach(id => { const el = $(id); if (el) el.addEventListener("input", calcMissed); });
   ["#rd-list", "#rd-value", "#rd-rate"].forEach(id => { const el = $(id); if (el) el.addEventListener("input", calcRecovery); });
 
+  /* ---------- success popup ---------- */
+  const modal = $("#success-modal");
+  function openSuccess(name, phone) {
+    if (!modal) return;
+    const parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+    const first = /^(dr|mr|mrs|ms|miss|prof)\.?$/i.test(parts[0] || "") ? parts.slice(0, 2).join(" ") : (parts[0] || "");
+    $("#success-text").textContent = (first ? "Thank you, " + first + ". " : "Thank you. ") +
+      "Our team will call you within 20 minutes" + (phone ? " on " + String(phone).trim() : " on the number you shared") + ".";
+    modal.hidden = false;
+    $("#success-close").focus();
+  }
+  function closeSuccess() { if (modal) modal.hidden = true; }
+  if (modal) {
+    $("#success-close").addEventListener("click", closeSuccess);
+    modal.addEventListener("click", e => { if (e.target === modal) closeSuccess(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) closeSuccess(); });
+  }
+
   /* ---------- audit / demo form → Airtable (via /api/lead), email as fallback ---------- */
   const form = $("#audit-form");
   if (form) {
@@ -122,7 +140,8 @@ const CONFIG = {
         const out = await r.json().catch(() => ({}));
         if (r.ok && out.ok) {
           form.reset();
-          showStatus("Thank you. We've received your request and will contact you within one working day.", "ok");
+          if (status) status.hidden = true;
+          openSuccess(payload.name, payload.phone);
         } else if (r.status === 400) {
           showStatus(out.error || "Please check the highlighted fields and try again.", "error");
         } else {
