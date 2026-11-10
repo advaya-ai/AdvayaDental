@@ -87,7 +87,7 @@ const CONFIG = {
     const parts = String(name || "").trim().split(/\s+/).filter(Boolean);
     const first = /^(dr|mr|mrs|ms|miss|prof)\.?$/i.test(parts[0] || "") ? parts.slice(0, 2).join(" ") : (parts[0] || "");
     $("#success-text").textContent = (first ? "Thank you, " + first + ". " : "Thank you. ") +
-      "Our team will call you within 20 minutes" + (phone ? " on " + String(phone).trim() : " on the number you shared") + ".";
+      "Our AI assistant will call you within 20 minutes" + (phone ? " on " + String(phone).trim() : " on the number you shared") + ".";
     modal.hidden = false;
     $("#success-close").focus();
   }
@@ -151,7 +151,7 @@ const CONFIG = {
         showStatus("We couldn't save your request online, so your email app will open with the details filled in. If it doesn't, write to " + CONFIG.CONTACT_EMAIL + ".", "error");
         mailtoFallback(d, offers);
       } finally {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label || "Request my free audit"; }
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label || "Get my AI audit call"; }
       }
     });
   }

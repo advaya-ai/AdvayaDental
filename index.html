@@ -182,7 +182,7 @@
     <h1>Every call answered. <span class="accent">Every chair filled.</span></h1>
     <p class="lede">Three production-grade AI systems for dental clinics: a receptionist that follows your clinic's policies, a missed-call manager that brings callers back, and a recovery desk that books the treatment you've already diagnosed.</p>
     <div class="cta-row">
-      <a class="btn blue" href="#audit">Book a free 20-min audit →</a>
+      <a class="btn blue" href="#audit">Get a free AI audit call →</a>
       <a class="btn ghost" href="#calculator">Calculate lost revenue</a>
     </div>
     <ul class="trust"><li>Answers only from your approved policies</li><li>Bookings in your own Google Sheet</li><li>Hands everything else to a human</li></ul>
@@ -455,11 +455,18 @@
 </section>
 
 <section id="audit" aria-labelledby="audit-h">
-  <div class="wrap" style="max-width:860px">
-    <span class="eyebrow">Free audit</span>
-    <h2 id="audit-h">Find out what you're losing, in 20 minutes</h2>
-    <p class="lede">Tell us about your clinic. We'll look at your missed calls, how your phones are covered and your unscheduled list, then recommend one system. Sometimes that's none.</p>
-    <form id="audit-form" class="card" style="margin-top:26px">
+  <div class="wrap audit-wrap">
+    <div class="audit-intro">
+      <span class="eyebrow">Free AI audit call</span>
+      <h2 id="audit-h">Get a call from our AI assistant within 20 minutes</h2>
+      <p class="lede">Tell us about your clinic. Our AI assistant calls you to understand how your phones, missed calls and unscheduled list work today. Then we recommend one system. Sometimes that's none.</p>
+      <ol class="audit-steps">
+        <li><b>Fill in the form</b><span>About a minute. No patient details.</span></li>
+        <li><b>Get a call within 20 minutes</b><span>Our AI assistant asks a few questions about your clinic.</span></li>
+        <li><b>Receive a recommendation</b><span>We follow up with the system that fits, or tell you none does.</span></li>
+      </ol>
+    </div>
+    <form id="audit-form" class="card audit-form">
       <div class="row">
         <div><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div><label for="f-clinic">Clinic name</label><input id="f-clinic" name="clinic" autocomplete="organization" required></div>
@@ -468,7 +475,16 @@
         <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="160" required></div>
         <div><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
       </div>
-      <label for="f-city">City and country</label><input id="f-city" name="city" required>
+      <div class="row">
+        <div><label for="f-city">City and country</label><input id="f-city" name="city" required></div>
+        <div><label for="f-size">Chairs / locations</label>
+          <select id="f-size" name="size"><option>1–2 chairs</option><option>3–5 chairs</option><option>6+ chairs</option><option>2–10 locations</option><option>10+ locations</option></select></div>
+      </div>
+      <label for="f-pms">Where appointments live today</label>
+      <select id="f-pms" name="pms">
+        <option>Paper / register</option><option>Google Sheets or Calendar</option><option>Practo Ray</option><option>Clinicea / Clinicia</option>
+        <option>Dentee / Cliniify / MocDoc</option><option>Dentrix</option><option>Eaglesoft</option><option>Open Dental</option><option>Curve Hero</option><option>Dentally</option><option>Other</option>
+      </select>
       <fieldset>
         <legend>Interested in</legend>
         <div class="checks">
@@ -477,20 +493,11 @@
           <label><input type="checkbox" name="offer" value="Recovery Desk"> Recovery Desk</label>
         </div>
       </fieldset>
-      <div class="row">
-        <div><label for="f-pms">Where appointments live today</label>
-          <select id="f-pms" name="pms">
-            <option>Paper / register</option><option>Google Sheets or Calendar</option><option>Practo Ray</option><option>Clinicea / Clinicia</option>
-            <option>Dentee / Cliniify / MocDoc</option><option>Dentrix</option><option>Eaglesoft</option><option>Open Dental</option><option>Curve Hero</option><option>Dentally</option><option>Other</option>
-          </select></div>
-        <div><label for="f-size">Chairs / locations</label>
-          <select id="f-size" name="size"><option>1–2 chairs</option><option>3–5 chairs</option><option>6+ chairs</option><option>2–10 locations</option><option>10+ locations</option></select></div>
-      </div>
       <label for="f-notes">Anything else? <span class="muted">(optional, please no patient details)</span></label>
-      <textarea id="f-notes" name="notes" maxlength="2000"></textarea>
+      <textarea id="f-notes" name="notes" maxlength="2000" rows="2"></textarea>
       <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
-      <div class="cta-row" style="margin:6px 0 0">
-        <button class="btn blue" type="submit">Request my free audit</button>
+      <div class="cta-row">
+        <button class="btn blue" type="submit">Get my AI audit call</button>
         <a class="btn ghost" data-wa href="#" hidden>Message us on WhatsApp</a>
       </div>
       <p id="form-status" class="small form-status" role="status" aria-live="polite" hidden></p>
@@ -503,7 +510,7 @@
   <div class="modal-card">
     <div class="modal-icon" aria-hidden="true">&#10003;</div>
     <h2 id="success-title">You'll get a call in 20 minutes</h2>
-    <p id="success-text">Thank you. Our team will call you within 20 minutes on the number you shared.</p>
+    <p id="success-text">Thank you. Our AI assistant will call you within 20 minutes on the number you shared.</p>
     <button type="button" class="btn blue" id="success-close">Got it</button>
   </div>
 </div>

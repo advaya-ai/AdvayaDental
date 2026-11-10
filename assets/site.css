@@ -282,3 +282,25 @@ button[disabled]{opacity:.7;cursor:progress}
 .modal-card p{color:var(--ink-2);margin:0 0 22px}
 .modal-card .btn{width:100%}
 .modal-icon{width:56px;height:56px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:var(--green);background:#f0fdf4;border:1px solid #bbf7d0}
+
+
+/* Audit section: intro beside a compact form so the whole form fits on one screen */
+.audit-wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:start}
+.audit-intro h2{margin-top:6px}
+.audit-steps{list-style:none;counter-reset:s;padding:0;margin:26px 0 0;display:grid;gap:14px}
+.audit-steps li{counter-increment:s;position:relative;padding-left:44px}
+.audit-steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#eef2ff;color:var(--blue);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.audit-steps b{display:block}
+.audit-steps span{color:var(--ink-2);font-size:.95rem}
+.audit-form{padding:22px}
+.audit-form .row{gap:12px}
+.audit-form label{font-size:.85rem;margin:0 0 4px}
+.audit-form input,.audit-form select,.audit-form textarea{padding:.6rem .8rem;margin-bottom:10px;border-radius:8px}
+.audit-form textarea{min-height:58px}
+.audit-form fieldset{margin:0 0 8px}
+.audit-form fieldset legend{font-size:.85rem;margin-bottom:6px}
+.audit-form .checks{gap:8px}
+.audit-form .checks label{padding:.45rem .75rem;font-size:.88rem}
+.audit-form .cta-row{margin:4px 0 0}
+.audit-form .cta-row .btn{padding:.8rem 1.3rem}
+@media (max-width:960px){.audit-wrap{grid-template-columns:1fr;gap:28px}}
