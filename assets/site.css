@@ -297,6 +297,9 @@ button[disabled]{opacity:.7;cursor:progress}
 .audit-form label{font-size:.85rem;margin:0 0 4px}
 .audit-form input,.audit-form select,.audit-form textarea{padding:.6rem .8rem;margin-bottom:10px;border-radius:8px}
 .audit-form textarea{min-height:58px}
+.phone-row{display:flex;gap:8px}
+.phone-row select{flex:0 0 7.2rem;width:7.2rem}
+.phone-row input{flex:1 1 auto;min-width:0}
 .audit-form fieldset{margin:0 0 8px}
 .audit-form fieldset legend{font-size:.85rem;margin-bottom:6px}
 .audit-form .checks{gap:8px}

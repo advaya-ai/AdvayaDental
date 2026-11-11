@@ -113,7 +113,7 @@ const CONFIG = {
       const lines = [
         "Free audit / demo request",
         "Name: " + d.get("name"), "Email: " + d.get("email"), "Clinic: " + d.get("clinic"), "City / country: " + d.get("city"),
-        "Phone / WhatsApp: " + d.get("phone"), "Interested in: " + (offers.join(", ") || "Not sure yet"),
+        "Phone / WhatsApp: " + (d.get("phone") && !String(d.get("phone")).trim().startsWith("+") ? (d.get("country_code") || "") + " " : "") + d.get("phone"), "Interested in: " + (offers.join(", ") || "Not sure yet"),
         "Practice software: " + d.get("pms"), "Chairs / locations: " + d.get("size"),
         "Notes: " + (d.get("notes") || "-")
       ];
@@ -124,8 +124,12 @@ const CONFIG = {
       e.preventDefault();
       const d = new FormData(form);
       const offers = d.getAll("offer");
+      // Number typed with its own +code wins; otherwise prefix the chosen code (drop trunk 0s).
+      const rawPhone = String(d.get("phone") || "").trim();
+      const countryCode = d.get("country_code") || "";
+      const fullPhone = rawPhone.startsWith("+") ? rawPhone : (countryCode + " " + rawPhone.replace(/^0+/, "")).trim();
       const payload = {
-        name: d.get("name"), email: d.get("email"), clinic: d.get("clinic"), city: d.get("city"), phone: d.get("phone"),
+        name: d.get("name"), email: d.get("email"), clinic: d.get("clinic"), city: d.get("city"), phone: rawPhone, country_code: countryCode,
         offers, pms: d.get("pms"), size: d.get("size"), notes: d.get("notes") || "",
         website: d.get("website") || ""
       };
@@ -141,7 +145,7 @@ const CONFIG = {
         if (r.ok && out.ok) {
           form.reset();
           if (status) status.hidden = true;
-          openSuccess(payload.name, payload.phone);
+          openSuccess(payload.name, fullPhone);
         } else if (r.status === 400) {
           showStatus(out.error || "Please check the highlighted fields and try again.", "error");
         } else {

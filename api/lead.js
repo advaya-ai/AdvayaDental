@@ -56,6 +56,7 @@ module.exports = async function handler(req, res) {
     clinic: clean(body.clinic, LIMITS.clinic),
     city: clean(body.city, LIMITS.city),
     phone: clean(body.phone, LIMITS.phone),
+    countryCode: clean(body.country_code, 6),
     pms: clean(body.pms, LIMITS.pms),
     size: clean(body.size, LIMITS.size),
     notes: clean(body.notes, LIMITS.notes),
@@ -75,6 +76,25 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ ok: false, error: "Please enter a valid phone number", fields: ["phone"] });
   }
 
+  // Save the number in E.164 (+<country code><number>) so the voice agent can dial it.
+  // A number typed with its own +code wins; otherwise prefix the code chosen in the dropdown.
+  const digits = data.phone.replace(/\D/g, "");
+  let phone;
+  if (data.phone.startsWith("+")) {
+    phone = "+" + digits;
+  } else if (/^\+\d{1,4}$/.test(data.countryCode)) {
+    const ccDigits = data.countryCode.slice(1);
+    let national = digits.replace(/^0+/, ""); // drop trunk prefix, e.g. 098... -> 98...
+    // Visitor typed the code again without "+" (e.g. 91 98765 43210): don't double it.
+    if (national.startsWith(ccDigits) && national.length > 10) national = national.slice(ccDigits.length);
+    phone = data.countryCode + national;
+  } else {
+    phone = data.phone; // old form without the dropdown
+  }
+  if (phone.replace(/\D/g, "").length < 8) {
+    return res.status(400).json({ ok: false, error: "Please enter a valid phone number", fields: ["phone"] });
+  }
+
   const token = process.env.AIRTABLE_TOKEN;
   if (!token) {
     console.error("AIRTABLE_TOKEN is not set");
@@ -86,7 +106,7 @@ module.exports = async function handler(req, res) {
     [FIELDS.email]: data.email,
     [FIELDS.clinic]: data.clinic,
     [FIELDS.city]: data.city,
-    [FIELDS.phone]: data.phone,
+    [FIELDS.phone]: phone,
     [FIELDS.offers]: offers.length ? offers.join(", ") : "Not sure yet",
     [FIELDS.pms]: data.pms,
     [FIELDS.size]: data.size,
